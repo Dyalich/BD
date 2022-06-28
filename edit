@@ -1,0 +1,84 @@
+unit edit;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons;
+
+type
+
+  { TfEdit }
+
+  TfEdit = class(TForm)
+    bok: TBitBtn;
+    bCancel: TBitBtn;
+    Klass: TComboBox;
+    OZ: TEdit;
+    BO: TEdit;
+    eName: TEdit;
+    enam: TLabel;
+    klasss: TLabel;
+    Zena: TLabel;
+    OZU: TLabel;
+
+    procedure BOKeyPress(Sender: TObject; var Key: char);
+
+    procedure eNameKeyPress(Sender: TObject; var Key: char);
+    procedure FormShow(Sender: TObject);
+    procedure KlassKeyPress(Sender: TObject; var Key: char);
+    procedure OZKeyPress(Sender: TObject; var Key: char);
+
+  private
+
+  public
+      tf: TextFile;
+  end;
+
+var
+  fEdit: TfEdit;
+
+implementation
+uses fmain;
+
+{$R *.lfm}
+
+{ TfEdit }
+
+
+
+
+procedure TfEdit.FormShow(Sender: TObject);
+begin
+  eName.SetFocus;
+
+end;
+
+
+
+procedure TfEdit.BOKeyPress(Sender: TObject; var Key: char);
+begin
+    BO.ReadOnly:= not (Key in ['0'..'9',#8]);
+end;
+
+procedure TfEdit.eNameKeyPress(Sender: TObject; var Key: char);
+begin
+
+end;
+
+
+
+procedure TfEdit.KlassKeyPress(Sender: TObject; var Key: char);
+begin
+    Klass.ReadOnly:= not (Key =#0);
+end;
+
+procedure TfEdit.OZKeyPress(Sender: TObject; var Key: char);
+begin
+   OZ.ReadOnly:= not (Key in ['0'..'9',#8]);
+end;
+
+end.
+
+        
